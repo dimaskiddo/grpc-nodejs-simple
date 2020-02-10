@@ -1,0 +1,31 @@
+{
+  "name": "grpc-nodejs-simple-server",
+  "version": "1.0.0",
+  "description": "NodeJS GRPC Simple Server Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimaskiddo/grpc-nodejs-simple.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "GRPC",
+    "Simple",
+    "Server",
+    "Application"
+  ],
+  "author": "Dimas Restu Hidayanto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dimaskiddo/simple-nodejs-grpc/issues"
+  },
+  "homepage": "https://github.com/dimaskiddo/simple-nodejs-grpc#readme",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.3",
+    "grpc": "^1.24.2",
+    "uuid": "^3.4.0"
+  }
+}
