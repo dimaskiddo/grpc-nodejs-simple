@@ -1,0 +1,36 @@
+syntax = "proto3";
+package product;
+
+// Product Service Proto
+service ProductService {
+  rpc ListProducts(Empty) returns (ProductList) {}
+  rpc InsertProduct(Product) returns (Status) {}
+  rpc UpdateProduct(Product) returns (Status) {}
+  rpc DeleteProduct(ProductId) returns (Status) {}
+  rpc GetProduct(ProductId) returns (Product) {}
+}
+
+// Empty Proto Field
+message Empty {}
+
+// Product Proto Field
+message Product {
+  string id = 1;
+  string name = 2;
+  string price = 3;
+}
+
+// ProductList Proto as Array of Product
+message ProductList {
+  repeated Product products = 1;
+}
+
+// ProductId Proto Field
+message ProductId {
+  string id = 1;
+}
+
+// Status Proto Field
+message Status {
+  bool status = 1;
+}
