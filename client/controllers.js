@@ -17,7 +17,7 @@ function index(req, res) {
   let response = {
     "status": true,
     "code": 200,
-    "message": "NodeJS GRPC Client is running"
+    "message": "NodeJS GRPC Client in REST is running"
   }
 
   res.status(response.code).json(response)
