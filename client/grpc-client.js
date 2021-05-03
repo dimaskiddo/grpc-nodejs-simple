@@ -1,4 +1,4 @@
-const grpc = require('grpc')
+const grpc = require('@grpc/grpc-js')
 const protoLoader = require('@grpc/proto-loader')
 
 const productProto = protoLoader.loadSync('../protos/product.proto')
@@ -7,8 +7,7 @@ const productDefinition = grpc.loadPackageDefinition(productProto).product
 const grpcHost = process.env.GRPC_SERVER_HOST || '127.0.0.1'
 const grpcPort = process.env.GRPC_SERVER_PORT || 3000
 
-const grpcClient = new productDefinition.ProductService(grpcHost+':'+grpcPort,
-                   grpc.credentials.createInsecure())
+const grpcClient = new productDefinition.ProductService(grpcHost+':'+grpcPort, grpc.credentials.createInsecure())
 
 
 // -------------------------------------------------

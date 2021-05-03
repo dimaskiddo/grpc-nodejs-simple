@@ -1,6 +1,6 @@
 const uuidv4 = require('uuid/v4')
 
-const grpc = require('grpc')
+const grpc = require('@grpc/grpc-js')
 const protoLoader = require('@grpc/proto-loader')
 
 const productProto = protoLoader.loadSync('../protos/product.proto')
@@ -105,12 +105,11 @@ function GetProduct(call, response) {
 
 // -------------------------------------------------
 // Configure GRPC Server Bind Address and Certificate Credentials
-if (process.env.NODE_ENV !== 'production') {
-  grpcServer.bind(grpcBind+':'+grpcPort, grpc.ServerCredentials.createInsecure())
-}
+grpcServer.bindAsync(grpcBind+':'+grpcPort, grpc.ServerCredentials.createInsecure(), function(error) {
+  if (error !== null)
+    console.error(error)
 
-
-// -------------------------------------------------
-// Start GRPC Server
-grpcServer.start()
-console.log('GRPC Server Started at '+grpcBind+':'+grpcPort)
+  // Start GRPC Server
+  grpcServer.start()
+  console.log('GRPC Server Started at '+grpcBind+':'+grpcPort)    
+})
